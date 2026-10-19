@@ -1,14 +1,15 @@
-# JungHun Kim Research Homepage
+# JungHun Kim — AI Research & Engineering
 
-Static academic-style personal homepage generated from `kjh_CV.pdf`.
+Static research portfolio inspired by a clean editorial academic layout. Content is
+based on the current CV and public Notion portfolio.
 
 ## Files
 
-- `index.html` - main research homepage
-- `styles.css` - responsive academic visual system
-- `script.js` - current year, subtle reveal animation, active navigation
-- `assets/research-map.png` - generated research illustration
-- `assets/kjh_CV.pdf` - downloadable CV
+- `index.html` — portfolio content and accessible page structure
+- `styles.css` — responsive visual system for desktop and mobile
+- `script.js` — current year, section reveal, header state, and active navigation
+- `assets/profile.jpg` — profile portrait
+- `assets/kjh_CV.pdf` — downloadable current CV
 
 ## Publish on GitHub Pages
 

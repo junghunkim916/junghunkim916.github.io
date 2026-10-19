@@ -5,6 +5,14 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+const header = document.querySelector(".site-header");
+const updateHeader = () => {
+  header?.classList.toggle("is-scrolled", window.scrollY > 12);
+};
+
+updateHeader();
+window.addEventListener("scroll", updateHeader, { passive: true });
+
 const sections = document.querySelectorAll(".section");
 
 if ("IntersectionObserver" in window) {
@@ -17,7 +25,7 @@ if ("IntersectionObserver" in window) {
         }
       });
     },
-    { threshold: 0.08 }
+    { threshold: 0.06 }
   );
 
   sections.forEach((section) => revealObserver.observe(section));
@@ -30,9 +38,19 @@ const navTargets = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
+const clearNavNearTop = () => {
+  if (window.scrollY >= Math.min(240, window.innerHeight * 0.25)) return false;
+  navLinks.forEach((link) => link.classList.remove("is-active"));
+  return true;
+};
+
+clearNavNearTop();
+window.addEventListener("scroll", clearNavNearTop, { passive: true });
+
 if ("IntersectionObserver" in window && navTargets.length) {
   const navObserver = new IntersectionObserver(
     (entries) => {
+      if (clearNavNearTop()) return;
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const id = `#${entry.target.id}`;
@@ -42,7 +60,7 @@ if ("IntersectionObserver" in window && navTargets.length) {
       });
     },
     {
-      rootMargin: "-30% 0px -55% 0px",
+      rootMargin: "-24% 0px -62% 0px",
       threshold: 0.01,
     }
   );
