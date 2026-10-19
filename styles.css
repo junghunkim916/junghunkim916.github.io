@@ -306,7 +306,7 @@ h3 {
 .portrait-wrap {
   position: relative;
   justify-self: end;
-  width: min(100%, 255px);
+  width: min(100%, 170px);
   margin-right: 1.5rem;
   padding: 1.2rem 0 1.6rem;
 }
@@ -315,11 +315,10 @@ h3 {
   position: relative;
   z-index: 2;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: auto;
   border-radius: 18px;
   box-shadow: var(--shadow);
-  object-fit: cover;
-  object-position: center 18%;
+  object-fit: contain;
 }
 
 .portrait-accent {
@@ -773,7 +772,7 @@ h3 {
 
   .portrait-wrap {
     justify-self: center;
-    width: min(68vw, 255px);
+    width: min(68vw, 170px);
     margin-right: 0;
   }
 
